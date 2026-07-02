@@ -6,14 +6,22 @@ export const siteConfig = {
   url: "https://northpixel.studio",
   locale: "en_IN",
   links: {
-    whatsapp: "https://wa.me/919000000000",
-    email: "mailto:hello@northpixel.studio",
-    linkedin: "https://linkedin.com/in/northpixel",
+    email: "mailto:northpixelcreations@gmail.com",
+    x: "https://x.com/northpixel",
     instagram: "https://instagram.com/northpixel",
   },
   contact: {
-    email: "hello@northpixel.studio",
-    phone: "+91 90000 00000",
+    email: "northpixelcreations@gmail.com",
+    whatsapp: [
+      {
+        display: "+91 70227 42719",
+        href: "https://wa.me/917022742719",
+      },
+      {
+        display: "+91 91085 61980",
+        href: "https://wa.me/919108561980",
+      },
+    ],
   },
 } as const;
 

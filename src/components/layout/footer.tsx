@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-border">
       <div className="border-b border-border bg-[#0a0a0a]">
         <div className="mx-auto flex max-w-6xl flex-col items-center px-6 py-12 md:px-8 md:py-16">
-          <Logo variant="full" href="/" />
+          <Logo variant="large" href="/" />
         </div>
       </div>
 

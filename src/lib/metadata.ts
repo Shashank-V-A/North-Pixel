@@ -33,8 +33,8 @@ export function createMetadata({
       images: [
         {
           url: "/logo.png",
-          width: 400,
-          height: 500,
+          width: 242,
+          height: 67,
           alt: `${siteConfig.name} logo`,
         },
       ],
@@ -62,7 +62,7 @@ export function createJsonLd() {
     image: `${siteConfig.url}/logo.png`,
     logo: `${siteConfig.url}/logo.png`,
     email: siteConfig.contact.email,
-    telephone: siteConfig.contact.phone,
+    telephone: siteConfig.contact.whatsapp.map((item) => item.display),
     areaServed: {
       "@type": "Country",
       name: "India",

@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-8">
-        <Logo variant="header" priority />
+        <Logo priority />
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {navLinks.map((link) => (
@@ -54,8 +54,8 @@ export function Header() {
 
       {mobileOpen && (
         <div className="border-t border-border bg-background px-6 py-4 md:hidden">
-          <div className="mb-4 flex justify-center border-b border-border pb-4">
-            <Logo variant="header" href={null} />
+          <div className="mb-4 flex justify-center border-b border-border px-4 pb-5 pt-3">
+            <Logo variant="large" href={null} />
           </div>
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {navLinks.map((link) => (

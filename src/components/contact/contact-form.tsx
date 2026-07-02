@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -19,24 +20,68 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+type Web3FormsResponse = {
+  success: boolean;
+  message?: string;
+};
+
 export function ContactForm() {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
 
   async function onSubmit(data: ContactFormData) {
-    // Placeholder — connect to your backend or form service
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log("Form submitted:", data);
+    setSubmitError(null);
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitError(
+        "Form is not configured yet. Please email northpixelcreations@gmail.com directly."
+      );
+      return;
+    }
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name: data.name,
+        email: data.email,
+        phone: data.phone || "Not provided",
+        business: data.business || "Not provided",
+        message: data.message,
+        subject: `New enquiry from ${data.name}`,
+        from_name: "North Pixel Website",
+      }),
+    });
+
+    const result = (await response.json()) as Web3FormsResponse;
+
+    if (!response.ok || !result.success) {
+      setSubmitError(
+        result.message ??
+          "Something went wrong. Please try again or email northpixelcreations@gmail.com."
+      );
+      return;
+    }
+
     reset();
+    setIsSuccess(true);
   }
 
-  if (isSubmitSuccessful) {
+  if (isSuccess) {
     return (
       <FadeIn>
         <div className="rounded-2xl border border-border bg-white p-8 text-center">
@@ -121,7 +166,18 @@ export function ContactForm() {
           )}
         </div>
 
-        <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
+        {submitError && (
+          <p className="text-sm text-destructive" role="alert">
+            {submitError}
+          </p>
+        )}
+
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full sm:w-auto"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
       </form>

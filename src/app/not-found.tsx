@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="flex flex-1 items-center justify-center px-6 py-32">
       <div className="text-center">
         <div className="mb-8 flex justify-center">
-          <Logo variant="full" href={null} />
+          <Logo variant="large" href={null} />
         </div>
         <p className="text-sm font-medium text-accent">404</p>
         <h1 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-foreground">

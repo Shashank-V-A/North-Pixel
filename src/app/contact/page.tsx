@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, MessageCircle } from "lucide-react";
-import { LinkedInIcon, InstagramIcon } from "@/components/shared/brand-icons";
+import { XIcon, InstagramIcon } from "@/components/shared/brand-icons";
 import { siteConfig } from "@/lib/site-config";
 import { createMetadata } from "@/lib/metadata";
 import { FadeIn } from "@/components/shared/fade-in";
@@ -11,34 +11,34 @@ import { ContactForm } from "@/components/contact/contact-form";
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
-    "Get in touch to book a free consultation. Reach out via WhatsApp, email, LinkedIn, or Instagram.",
+    "Get in touch to book a free consultation. Reach out via WhatsApp, email, X, or Instagram.",
   path: "/contact",
 });
 
 const contactMethods = [
   {
-    label: "WhatsApp",
-    value: "Chat on WhatsApp",
-    href: siteConfig.links.whatsapp,
-    icon: MessageCircle,
-  },
-  {
+    key: "email",
     label: "Email",
     value: siteConfig.contact.email,
     href: siteConfig.links.email,
     icon: Mail,
+    external: false,
   },
   {
-    label: "LinkedIn",
-    value: "Connect on LinkedIn",
-    href: siteConfig.links.linkedin,
-    icon: LinkedInIcon,
+    key: "x",
+    label: "X (Twitter)",
+    value: "@northpixel",
+    href: siteConfig.links.x,
+    icon: XIcon,
+    external: true,
   },
   {
+    key: "instagram",
     label: "Instagram",
     value: "@northpixel",
     href: siteConfig.links.instagram,
     icon: InstagramIcon,
+    external: true,
   },
 ];
 
@@ -67,16 +67,34 @@ export default function ContactPage() {
           <div className="lg:col-span-2">
             <FadeIn>
               <div className="space-y-6">
+                <div className="flex items-start gap-4 rounded-2xl border border-border bg-white p-5">
+                  <div className="inline-flex rounded-xl bg-accent/8 p-2.5 text-accent">
+                    <MessageCircle className="size-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">WhatsApp</p>
+                    <div className="mt-1 flex flex-col gap-1">
+                      {siteConfig.contact.whatsapp.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-foreground transition-colors hover:text-accent"
+                        >
+                          {item.display}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
                 {contactMethods.map((method) => (
                   <Link
-                    key={method.label}
+                    key={method.key}
                     href={method.href}
-                    target={method.label !== "Email" ? "_blank" : undefined}
-                    rel={
-                      method.label !== "Email"
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
+                    target={method.external ? "_blank" : undefined}
+                    rel={method.external ? "noopener noreferrer" : undefined}
                     className="group flex items-start gap-4 rounded-2xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm"
                   >
                     <div className="inline-flex rounded-xl bg-accent/8 p-2.5 text-accent">

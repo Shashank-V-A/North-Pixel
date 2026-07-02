@@ -21,11 +21,26 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+### Environment variables
+
+Copy `.env.example` to `.env.local` and add your Web3Forms access key:
+
+```bash
+cp .env.example .env.local
+```
+
+```env
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_key_here
+```
+
+For Vercel, add the same variable in **Project Settings → Environment Variables**.
+
 ## Deploy to Vercel
 
 1. Push to GitHub
 2. Import the repository in [Vercel](https://vercel.com)
-3. Deploy — no extra configuration required
+3. Add `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in environment variables
+4. Deploy
 
 Update `src/lib/site-config.ts` with your real URLs, email, phone, and social links before going live.
 
