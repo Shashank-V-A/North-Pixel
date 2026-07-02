@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-5">
             <Logo />
-            <p className="hidden text-xs text-ink-subtle lg:block">
+            <p className="hidden text-xs text-foreground/75 lg:block">
               &copy; {currentYear} {siteConfig.name}
             </p>
           </div>
@@ -24,7 +24,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="text-xs text-foreground/80 transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -33,13 +33,13 @@ export function Footer() {
 
           <a
             href={siteConfig.links.email}
-            className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="text-xs text-foreground/80 transition-colors hover:text-foreground"
           >
             {siteConfig.contact.email}
           </a>
         </div>
 
-        <p className="mt-4 text-xs text-ink-subtle lg:hidden">
+        <p className="mt-4 text-xs text-foreground/75 lg:hidden">
           &copy; {currentYear} {siteConfig.name}
         </p>
       </div>

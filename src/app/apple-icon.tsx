@@ -3,6 +3,9 @@ import { ImageResponse } from "next/og";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
+const DARK = "#274245";
+const CREAM = "#DFD6AE";
+
 export default function AppleIcon() {
   return new ImageResponse(
     (
@@ -13,15 +16,44 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#DFD6AE",
-          color: "#274245",
-          fontSize: 72,
-          fontWeight: 700,
-          letterSpacing: "-0.04em",
-          fontFamily: "system-ui, sans-serif",
+          background: DARK,
+          borderRadius: 40,
+          position: "relative",
         }}
       >
-        NP
+        <div
+          style={{
+            position: "absolute",
+            top: 34,
+            left: 73,
+            width: 34,
+            height: 34,
+            borderRadius: 8,
+            background: CREAM,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 102,
+            left: 39,
+            width: 34,
+            height: 34,
+            borderRadius: 8,
+            background: CREAM,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 102,
+            left: 107,
+            width: 34,
+            height: 34,
+            borderRadius: 8,
+            background: CREAM,
+          }}
+        />
       </div>
     ),
     { ...size }

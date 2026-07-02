@@ -17,13 +17,13 @@ export function Hero() {
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-12 md:px-8 md:pb-28 md:pt-16">
         <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <FadeIn>
-            <SectionLabel index="00">North Pixel Studio</SectionLabel>
+            <SectionLabel index="00">North Pixel Creation</SectionLabel>
             <h1 className="mt-8 text-display font-semibold text-balance text-foreground">
               Websites that make{" "}
               <span className="accent-word">local businesses</span> impossible
               to ignore.
             </h1>
-            <p className="mt-7 max-w-lg text-[1.0625rem] leading-[1.7] text-muted-foreground">
+            <p className="mt-7 max-w-lg text-[1.0625rem] leading-[1.7] text-foreground/90">
               I design and build fast, distinctive websites that help businesses
               build trust, attract customers, and convert visitors into leads.
             </p>
@@ -39,7 +39,7 @@ export function Hero() {
               </Button>
             </div>
             <div className="mt-12 flex items-center gap-4 border-t border-border pt-8">
-              <p className="text-sm text-ink-subtle">
+              <p className="text-sm text-foreground/85">
                 Based in India · Working with local businesses nationwide
               </p>
               <span className="hidden h-4 w-px bg-border sm:block" />

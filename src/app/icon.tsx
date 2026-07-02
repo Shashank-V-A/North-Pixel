@@ -3,6 +3,9 @@ import { ImageResponse } from "next/og";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
+const DARK = "#274245";
+const CREAM = "#DFD6AE";
+
 export default function Icon() {
   return new ImageResponse(
     (
@@ -13,15 +16,44 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#DFD6AE",
-          color: "#274245",
-          fontSize: 13,
-          fontWeight: 700,
-          letterSpacing: "-0.04em",
-          fontFamily: "system-ui, sans-serif",
+          background: DARK,
+          borderRadius: 8,
+          position: "relative",
         }}
       >
-        NP
+        <div
+          style={{
+            position: "absolute",
+            top: 6,
+            left: 13,
+            width: 6,
+            height: 6,
+            borderRadius: 2,
+            background: CREAM,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 18,
+            left: 7,
+            width: 6,
+            height: 6,
+            borderRadius: 2,
+            background: CREAM,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 18,
+            left: 19,
+            width: 6,
+            height: 6,
+            borderRadius: 2,
+            background: CREAM,
+          }}
+        />
       </div>
     ),
     { ...size }

@@ -57,25 +57,25 @@
 :root {
   /* Yellow Sapling + Dark Blue palette */
   --background: #dfd6ae;
-  --foreground: #274245;
+  --foreground: #1a2f32;
   --surface: #e8e2c8;
   --surface-muted: #d4ccaa;
-  --ink-subtle: #5a7174;
+  --ink-subtle: #274245;
 
   --brand: #274245;
   --brand-muted: #3a585b;
 
   --card: #e8e2c8;
-  --card-foreground: #274245;
+  --card-foreground: #1a2f32;
   --popover: #dfd6ae;
-  --popover-foreground: #274245;
+  --popover-foreground: #1a2f32;
 
   --primary: #274245;
   --primary-foreground: #dfd6ae;
   --secondary: #d4ccaa;
-  --secondary-foreground: #274245;
+  --secondary-foreground: #1a2f32;
   --muted: #cec6a4;
-  --muted-foreground: #4a6366;
+  --muted-foreground: #274245;
 
   --accent: #274245;
   --accent-foreground: #dfd6ae;
@@ -167,7 +167,7 @@
   }
 
   .accent-word {
-    @apply font-semibold text-brand;
+    @apply font-semibold text-foreground;
   }
 
   .bg-foreground .accent-word {

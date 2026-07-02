@@ -46,14 +46,16 @@ export function Header() {
                 className={cn(
                   "group relative flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-200",
                   active
-                    ? "font-medium text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "font-semibold text-foreground"
+                    : "text-foreground/80 hover:text-foreground"
                 )}
               >
                 <span
                   className={cn(
                     "font-mono text-[0.6875rem] tabular-nums transition-colors",
-                    active ? "text-brand" : "text-ink-subtle group-hover:text-brand"
+                    active
+                      ? "text-foreground"
+                      : "text-foreground/70 group-hover:text-foreground"
                   )}
                 >
                   {index}
@@ -101,10 +103,10 @@ export function Header() {
                     "flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition-colors",
                     pathname === link.href
                       ? "bg-foreground text-background"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      : "text-foreground/80 hover:bg-muted hover:text-foreground"
                   )}
                 >
-                  <span className="font-mono text-xs tabular-nums opacity-60">
+                  <span className="font-mono text-xs tabular-nums text-foreground/70">
                     {index}
                   </span>
                   {link.label}

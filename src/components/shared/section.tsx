@@ -96,7 +96,7 @@ export function SectionHeader({
         <p
           className={cn(
             "mt-4 text-[1.0625rem] leading-[1.65]",
-            isDark ? "text-background/60" : "text-muted-foreground"
+            isDark ? "text-background/90" : "text-foreground/90"
           )}
         >
           {description}
