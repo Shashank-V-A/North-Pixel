@@ -2,11 +2,8 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/shared/fade-in";
-import { BrowserMockup } from "@/components/shared/browser-mockup";
+import { HeroProjectCarousel } from "@/components/home/hero-project-carousel";
 import { SectionLabel } from "@/components/shared/section-label";
-import { projects } from "@/lib/data/projects";
-
-const featuredProject = projects.find((p) => p.featured) ?? projects[0];
 
 export function Hero() {
   return (
@@ -53,16 +50,8 @@ export function Hero() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.1}>
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-foreground/5 blur-2xl" />
-              <div className="relative rounded-2xl bg-foreground p-2 shadow-elevated md:p-3">
-                <BrowserMockup project={featuredProject} size="large" />
-              </div>
-              <p className="mt-4 text-center font-mono text-xs text-ink-subtle">
-                {featuredProject.title} — {featuredProject.category}
-              </p>
-            </div>
+          <FadeIn delay={0.1} className="min-w-0">
+            <HeroProjectCarousel />
           </FadeIn>
         </div>
       </div>
