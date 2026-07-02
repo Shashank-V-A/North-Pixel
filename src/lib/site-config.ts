@@ -1,9 +1,32 @@
+function getSiteUrl(): string {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
+  if (configured) return configured;
+
+  const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (productionHost) {
+    return productionHost.startsWith("http")
+      ? productionHost.replace(/\/$/, "")
+      : `https://${productionHost.replace(/\/$/, "")}`;
+  }
+
+  const deploymentHost = process.env.VERCEL_URL?.trim();
+  if (deploymentHost) {
+    return `https://${deploymentHost.replace(/\/$/, "")}`;
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3000";
+  }
+
+  return "https://northpixel.studio";
+}
+
 export const siteConfig = {
   name: "North Pixel",
   tagline: "Websites that drive growth",
   description:
     "I design and build fast, modern websites that help local businesses build trust, attract customers, and convert visitors into leads.",
-  url: "https://northpixel.studio",
+  url: getSiteUrl(),
   locale: "en_IN",
   links: {
     email: "mailto:northpixelcreations@gmail.com",

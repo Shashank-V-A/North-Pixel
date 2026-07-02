@@ -1,6 +1,6 @@
 # North Pixel
 
-Premium agency website for a freelance web design and development studio.
+Marketing site for North Pixel — freelance web design and development.
 
 ## Tech Stack
 
@@ -10,12 +10,13 @@ Premium agency website for a freelance web design and development studio.
 - shadcn/ui
 - Framer Motion
 - React Hook Form + Zod
-- Lenis smooth scrolling
+- Web3Forms (contact form)
 
 ## Getting Started
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
@@ -23,26 +24,47 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Environment variables
 
-Copy `.env.example` to `.env.local` and add your Web3Forms access key:
+Copy `.env.example` to `.env.local` and fill in your values:
 
-```bash
-cp .env.example .env.local
-```
-
-```env
-NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_key_here
-```
-
-For Vercel, add the same variable in **Project Settings → Environment Variables**.
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Yes (production) | Web3Forms access key for the contact form |
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Public site URL for SEO, sitemap, and Open Graph |
 
 ## Deploy to Vercel
 
-1. Push to GitHub
-2. Import the repository in [Vercel](https://vercel.com)
-3. Add `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in environment variables
-4. Deploy
+This project is ready for Vercel with zero extra config — Next.js is auto-detected.
 
-Update `src/lib/site-config.ts` with your real URLs, email, phone, and social links before going live.
+### 1. Push to GitHub
+
+```bash
+git add .
+git commit -m "Prepare for Vercel deployment"
+git push origin main
+```
+
+### 2. Import on Vercel
+
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import `Shashank-V-A/North-Pixel` from GitHub
+3. Framework preset: **Next.js** (auto-detected)
+4. Build command: `npm run build` (default)
+5. Output directory: `.next` (default)
+
+### 3. Add environment variables
+
+In **Project Settings → Environment Variables**, add:
+
+| Name | Value | Environments |
+|------|-------|--------------|
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Your Web3Forms key | Production, Preview, Development |
+| `NEXT_PUBLIC_SITE_URL` | `https://your-domain.com` | Production only |
+
+For preview deployments, the site URL falls back to the Vercel deployment URL automatically.
+
+### 4. Deploy
+
+Click **Deploy**. Vercel will build and host the site. Connect a custom domain under **Project Settings → Domains** when ready.
 
 ## Project Structure
 
@@ -52,7 +74,7 @@ src/
 ├── components/
 │   ├── contact/      # Contact form
 │   ├── home/         # Home page sections
-│   ├── layout/       # Header, footer, smooth scroll
+│   ├── layout/       # Header, footer, Jotform agent
 │   ├── pricing/      # Pricing components
 │   ├── shared/       # Reusable UI blocks
 │   └── ui/           # shadcn/ui primitives

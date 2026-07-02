@@ -24,7 +24,7 @@ export default function PricingPage() {
             Simple, <span className="accent-word">transparent</span> pricing
           </>
         }
-        description="No hidden fees. Choose the package that fits your business, or book a call to discuss a custom solution."
+        description="No hidden fees. Every package lists what's included, what's extra, and how long delivery takes. Based in Bangalore, serving businesses across India."
       />
 
       <Section tone="surface" className="border-t border-border">

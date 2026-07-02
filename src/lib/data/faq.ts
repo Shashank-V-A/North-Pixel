@@ -2,41 +2,41 @@ export const faqItems = [
   {
     question: "How long does it take to build a website?",
     answer:
-      "Most projects are completed within 7–14 business days depending on the package and complexity. Premium custom projects may take 3–4 weeks. I'll provide a clear timeline during our initial consultation.",
+      "Starter sites take about 7 business days, Professional sites about 14 days, and Premium projects 3–4 weeks — all starting from when I receive your content (text, photos, logo). I'll share a clear timeline before work begins.",
   },
   {
     question: "Do I need to provide content and images?",
     answer:
-      "Yes, you'll provide your business content, photos, and branding materials. If you need help with copywriting or sourcing images, I can recommend trusted partners or include it as an add-on.",
+      "Yes. You provide your business text, photos, logo, and any brand colours. This keeps costs down and ensures your site sounds like you. If you need help with writing or photos, I offer add-ons starting from ₹1,500 per page.",
+  },
+  {
+    question: "Is hosting and domain included in the price?",
+    answer:
+      "No — the package price covers design and development only. Domain names cost roughly ₹500–₹1,200/year and hosting ₹1,500–₹5,000/year depending on your provider. I'll recommend affordable options and handle the full technical setup for you.",
   },
   {
     question: "Will my website work on mobile phones?",
     answer:
-      "Absolutely. Every website I build is fully responsive and tested across phones, tablets, and desktops. With most local customers browsing on mobile, this is a non-negotiable standard.",
+      "Yes. Every site is built mobile-first and tested on phones, tablets, and desktops. Most of your customers in Bangalore will find you on their phone — this is built in from day one.",
   },
   {
-    question: "Can I update the website myself after launch?",
+    question: "What counts as a 'content change' in maintenance?",
     answer:
-      "For most packages, I'll set up a simple way for you to request content updates. If you prefer hands-on control, we can discuss CMS options during the discovery call.",
+      "A content change is a small update — swapping text, replacing a photo, updating prices or timings, or changing a phone number. It does not include building new pages, redesigning sections, or adding new features. Those are quoted separately.",
   },
   {
     question: "Do you offer website maintenance?",
     answer:
-      "Yes. I offer three maintenance plans starting at ₹999/month covering security updates, backups, content changes, and ongoing support so your site stays secure and up to date.",
-  },
-  {
-    question: "What if I already have a website?",
-    answer:
-      "I offer website redesign services to modernise your existing site. We'll audit what's working, improve what isn't, and give your online presence a fresh, professional look.",
+      "Yes. Three plans from ₹999/month cover security updates, backups, content edits, and support. Plans are month-to-month with no long-term contract. Professional and Premium website clients get their first maintenance month free.",
   },
   {
     question: "How do payments work?",
     answer:
-      "Typically, 50% is due upfront to begin work and the remaining 50% upon completion before launch. For larger projects, we can arrange a milestone-based payment schedule.",
+      "50% advance to begin work, 50% before launch. Premium projects can be split across milestones. I accept UPI or bank transfer — payment details are shared once we agree on the project.",
   },
   {
-    question: "Do you work with businesses outside my city?",
+    question: "Do you only work in Bangalore?",
     answer:
-      "Yes. While I specialise in helping local businesses, I work with clients across India. All communication happens via video call, WhatsApp, and email — location is never a barrier.",
+      "I'm based in Bangalore and happy to meet locally by appointment. I also work with businesses across India over WhatsApp, video call, and email — location is never a barrier.",
   },
 ];

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { websitePackages, maintenancePlans } from "@/lib/data/pricing";
+import { PricingClarity } from "@/components/pricing/pricing-clarity";
 import { FadeIn } from "@/components/shared/fade-in";
 import { SectionHeader } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,7 @@ export function PricingCards() {
                 <span
                   className={cn(
                     "font-mono text-xs",
-                    tier.popular ? "text-background/40" : "text-ink-subtle"
+                    tier.popular ? "text-background/50" : "text-foreground/60"
                   )}
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -53,14 +54,33 @@ export function PricingCards() {
               <p
                 className={cn(
                   "mt-3 text-sm leading-relaxed",
-                  tier.popular ? "text-background/60" : "text-muted-foreground"
+                  tier.popular ? "text-background/80" : "text-foreground/85"
                 )}
               >
                 {tier.description}
               </p>
+              <p
+                className={cn(
+                  "mt-3 rounded-lg border px-3 py-2 text-xs leading-relaxed",
+                  tier.popular
+                    ? "border-background/15 bg-background/10 text-background/80"
+                    : "border-border bg-surface-muted text-foreground/85"
+                )}
+              >
+                <span className="font-medium">Best for: </span>
+                {tier.idealFor}
+              </p>
+              <p
+                className={cn(
+                  "mt-2 font-mono text-[0.6875rem] uppercase tracking-wider",
+                  tier.popular ? "text-background/60" : "text-foreground/65"
+                )}
+              >
+                Delivery: {tier.timeline}
+              </p>
               <ul
                 className={cn(
-                  "mt-8 flex-1 space-y-3 border-t pt-8",
+                  "mt-6 flex-1 space-y-3 border-t pt-6",
                   tier.popular ? "border-background/15" : "border-border"
                 )}
               >
@@ -69,7 +89,7 @@ export function PricingCards() {
                     key={feature}
                     className={cn(
                       "flex gap-3 text-sm leading-snug",
-                      tier.popular ? "text-background/70" : "text-muted-foreground"
+                      tier.popular ? "text-background/85" : "text-foreground/90"
                     )}
                   >
                     <span
@@ -98,21 +118,23 @@ export function PricingCards() {
         ))}
       </div>
 
-      <div className="mt-24 border-t border-border pt-20">
+      <PricingClarity />
+
+      <div className="mt-20 border-t border-border pt-20">
         <FadeIn>
           <SectionHeader
             index="05"
             label="Maintenance"
-            title="Ongoing support"
-            description="Optional monthly plans for updates, security, and peace of mind."
+            title="Ongoing support after launch"
+            description="Your website needs care after it goes live. These monthly plans cover updates, backups, and peace of mind — all optional, no lock-in contracts."
           />
         </FadeIn>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {maintenancePlans.map((plan, i) => (
             <FadeIn key={plan.name} delay={i * 0.05}>
-              <div className="group h-full rounded-2xl border border-border bg-background p-6 transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-subtle md:p-7">
-                <span className="font-mono text-xs text-brand">
+              <div className="group flex h-full flex-col rounded-2xl border border-border bg-background p-6 transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-subtle md:p-7">
+                <span className="font-mono text-xs text-foreground/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 font-heading text-base font-semibold text-foreground">
@@ -121,13 +143,23 @@ export function PricingCards() {
                 <p className="mt-2 font-heading text-xl font-semibold tracking-[-0.02em] text-foreground">
                   {plan.price}
                 </p>
-                <ul className="mt-5 space-y-2.5 border-t border-border pt-5">
+                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
+                  {plan.description}
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-foreground/75">
+                  <span className="font-medium text-foreground">Best for: </span>
+                  {plan.idealFor}
+                </p>
+                <p className="mt-2 font-mono text-[0.625rem] uppercase tracking-wider text-foreground/65">
+                  Response: {plan.responseTime}
+                </p>
+                <ul className="mt-5 flex-1 space-y-2.5 border-t border-border pt-5">
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex gap-2.5 text-sm text-muted-foreground"
+                      className="flex gap-2.5 text-sm leading-snug text-foreground/90"
                     >
-                      <span className="mt-2 size-1 shrink-0 rounded-full bg-brand" />
+                      <span className="mt-2 size-1 shrink-0 rounded-full bg-foreground" />
                       {feature}
                     </li>
                   ))}
@@ -136,6 +168,11 @@ export function PricingCards() {
             </FadeIn>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-sm text-foreground/80">
+          Maintenance is month-to-month. Cancel anytime with 7 days notice. First
+          month free when bundled with a Professional or Premium website package.
+        </p>
       </div>
     </>
   );

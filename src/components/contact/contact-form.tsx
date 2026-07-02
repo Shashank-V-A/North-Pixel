@@ -13,8 +13,8 @@ import { FadeIn } from "@/components/shared/fade-in";
 const contactSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
   email: z.string().email("Please enter a valid email"),
-  phone: z.string().optional(),
-  business: z.string().optional(),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  business: z.string().min(2, "Please enter your business name"),
   message: z.string().min(10, "Please tell me a bit more about your project"),
 });
 
@@ -59,8 +59,8 @@ export function ContactForm() {
         access_key: accessKey,
         name: data.name,
         email: data.email,
-        phone: data.phone || "Not provided",
-        business: data.business || "Not provided",
+        phone: data.phone,
+        business: data.business,
         message: data.message,
         subject: `New enquiry from ${data.name}`,
         from_name: "North Pixel Website",
@@ -144,26 +144,34 @@ export function ContactForm() {
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="phone" className="text-ink-subtle">
-              Phone (optional)
+              Phone
             </Label>
             <Input
               id="phone"
               type="tel"
               placeholder="+91 90000 00000"
               className="h-11 border-border bg-surface"
+              aria-invalid={!!errors.phone}
               {...register("phone")}
             />
+            {errors.phone && (
+              <p className="text-sm text-destructive">{errors.phone.message}</p>
+            )}
           </div>
           <div className="space-y-2">
             <Label htmlFor="business" className="text-ink-subtle">
-              Business name (optional)
+              Business name
             </Label>
             <Input
               id="business"
               placeholder="Your business"
               className="h-11 border-border bg-surface"
+              aria-invalid={!!errors.business}
               {...register("business")}
             />
+            {errors.business && (
+              <p className="text-sm text-destructive">{errors.business.message}</p>
+            )}
           </div>
         </div>
 

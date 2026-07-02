@@ -40,7 +40,7 @@ export function Hero() {
             </div>
             <div className="mt-12 flex items-center gap-4 border-t border-border pt-8">
               <p className="text-sm text-foreground/85">
-                Based in India · Working with local businesses nationwide
+                Based in Bangalore · Working with businesses across India
               </p>
               <span className="hidden h-4 w-px bg-border sm:block" />
               <Link
