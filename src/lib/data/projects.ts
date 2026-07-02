@@ -63,9 +63,11 @@ export const projects: Project[] = [
     title: "Atelier Interiors",
     category: "Interior Designer",
     description:
-      "A portfolio-driven site showcasing curated projects with editorial photography and inquiry flows.",
-    accent: "#57534E",
-    accentLight: "#F5F5F4",
+      "A residential interiors studio site with project galleries, service packages, and consultation booking for Bengaluru homeowners.",
+    url: "https://sample-5-interior.vercel.app",
+    image: "/projects/atelier-interiors.png",
+    accent: "#3D3835",
+    accentLight: "#F5F2EE",
   },
   {
     slug: "harbor-realty",

@@ -45,11 +45,14 @@ export default function WorkPage() {
                     reversed && "lg:[&>*:first-child]:order-2"
                   )}
                 >
-                  <div className="relative">
-                    <span className="absolute -left-2 -top-6 font-mono text-6xl font-medium text-border md:-left-4 md:-top-8 md:text-8xl">
+                  <div className="space-y-5 md:space-y-6">
+                    <p
+                      aria-hidden="true"
+                      className="font-mono text-5xl font-semibold leading-none tracking-tight text-brand/40 md:text-7xl"
+                    >
                       {index}
-                    </span>
-                    <div className="relative rounded-2xl border border-border bg-surface p-3 shadow-subtle">
+                    </p>
+                    <div className="rounded-2xl border border-border bg-surface p-3 shadow-subtle">
                       <BrowserMockup
                         project={project}
                         size={i === 0 ? "large" : "default"}

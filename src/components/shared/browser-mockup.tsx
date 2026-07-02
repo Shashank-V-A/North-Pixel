@@ -61,7 +61,7 @@ export function BrowserMockup({
             src={project.image}
             alt={`${project.title} website preview`}
             fill
-            className="object-cover object-top"
+            className="object-contain object-top"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
           />
         ) : (
