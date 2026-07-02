@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { JotformAgent } from "@/components/layout/jotform-agent";
 import { createMetadata, createJsonLd } from "@/lib/metadata";
 import "./globals.css";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <JotformAgent />
       </body>
     </html>
   );
