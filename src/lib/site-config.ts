@@ -7,11 +7,12 @@ export const siteConfig = {
   locale: "en_IN",
   links: {
     email: "mailto:northpixelcreations@gmail.com",
-    x: "https://x.com/northpixel",
+    x: "https://x.com/NorthPixel1806",
     instagram: "https://instagram.com/northpixel",
   },
   contact: {
     email: "northpixelcreations@gmail.com",
+    x: "@NorthPixel1806",
     whatsapp: [
       {
         display: "+91 70227 42719",

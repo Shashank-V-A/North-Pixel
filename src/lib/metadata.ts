@@ -30,20 +30,11 @@ export function createMetadata({
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       type: "website",
-      images: [
-        {
-          url: "/logo.png",
-          width: 242,
-          height: 67,
-          alt: `${siteConfig.name} logo`,
-        },
-      ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title: pageTitle,
       description: pageDescription,
-      images: ["/logo.png"],
     },
     robots: {
       index: true,
@@ -59,8 +50,6 @@ export function createJsonLd() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    image: `${siteConfig.url}/logo.png`,
-    logo: `${siteConfig.url}/logo.png`,
     email: siteConfig.contact.email,
     telephone: siteConfig.contact.whatsapp.map((item) => item.display),
     areaServed: {

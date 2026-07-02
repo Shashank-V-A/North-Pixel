@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { services } from "@/lib/data/services";
 import { processSteps } from "@/lib/data/process";
 import { createMetadata } from "@/lib/metadata";
+import { PageHero } from "@/components/shared/page-hero";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Section, SectionHeader } from "@/components/shared/section";
 import { CTASection } from "@/components/shared/cta-section";
@@ -16,71 +17,77 @@ export const metadata: Metadata = createMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <Section size="lg" className="border-b border-border">
-        <FadeIn>
-          <div className="max-w-2xl">
-            <p className="mb-3 text-sm font-medium tracking-wide text-accent uppercase">
-              Services
-            </p>
-            <h1 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              Web solutions built for local businesses
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              From your first online presence to a complete digital overhaul — I
-              offer focused services designed to help your business stand out and
-              convert visitors into customers.
-            </p>
-          </div>
-        </FadeIn>
-      </Section>
+      <PageHero
+        index="01"
+        label="Services"
+        title={
+          <>
+            Web solutions built for{" "}
+            <span className="accent-word">local businesses</span>
+          </>
+        }
+        description="From your first online presence to a complete digital overhaul — focused services designed to help your business stand out and convert visitors into customers."
+      />
 
-      <Section>
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service, index) => (
-            <FadeIn key={service.title} delay={index * 0.05}>
-              <div className="flex gap-5 rounded-2xl border border-border bg-white p-6 md:p-8">
-                <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/8 text-accent">
-                  <service.icon className="size-5" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h2 className="font-heading text-xl font-semibold text-foreground">
-                    {service.title}
-                  </h2>
-                  <p className="mt-2 leading-relaxed text-muted-foreground">
+      <Section tone="surface" className="border-t border-border">
+        <div className="space-y-0">
+          {services.map((service, i) => {
+            const Icon = service.icon;
+            const index = String(i + 1).padStart(2, "0");
+            return (
+              <FadeIn key={service.title}>
+                <div className="group grid gap-6 border-b border-border py-10 last:border-b-0 md:grid-cols-[5rem_1fr_2fr] md:items-start md:gap-10 md:py-12">
+                  <span className="font-mono text-2xl font-medium text-brand md:text-3xl">
+                    {index}
+                  </span>
+                  <div className="flex items-start gap-4">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-border bg-background transition-colors group-hover:border-brand/30 group-hover:bg-brand/5">
+                      <Icon className="size-5 text-foreground" strokeWidth={1.5} />
+                    </div>
+                    <h2 className="font-heading text-xl font-semibold text-foreground md:text-2xl">
+                      {service.title}
+                    </h2>
+                  </div>
+                  <p className="text-[0.9375rem] leading-[1.7] text-muted-foreground md:pt-2">
                     {service.description}
                   </p>
                 </div>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            );
+          })}
         </div>
       </Section>
 
-      <Section className="border-t border-border bg-white">
-        <FadeIn>
-          <SectionHeader
-            label="How it works"
-            title="A process you can trust"
-            description="Every project follows the same proven framework — transparent, collaborative, and focused on results."
-            align="center"
-          />
-        </FadeIn>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <FadeIn key={step.step} delay={index * 0.06}>
-              <div>
-                <span className="text-sm font-semibold text-accent">
-                  {step.step}
-                </span>
-                <h3 className="mt-1 font-heading text-lg font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
-              </div>
-            </FadeIn>
-          ))}
+      <Section tone="dark" className="relative overflow-hidden border-t border-background/15">
+        <div className="absolute inset-0 bg-grid-dark opacity-40" />
+        <div className="relative">
+          <FadeIn>
+            <SectionHeader
+              index="02"
+              label="How it works"
+              title="A process you can trust"
+              description="Every project follows the same proven framework — transparent, collaborative, and focused on results."
+              variant="dark"
+            />
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <ol className="grid gap-px overflow-hidden rounded-2xl border border-background/15 bg-background/10 md:grid-cols-2 lg:grid-cols-3">
+              {processSteps.map((step) => (
+                <li
+                  key={step.step}
+                  className="bg-foreground p-6 transition-colors hover:bg-background/[0.06] md:p-7"
+                >
+                  <span className="font-mono text-sm text-background">{step.step}</span>
+                  <h3 className="mt-4 font-heading text-base font-semibold text-background">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-background/60">
+                    {step.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </FadeIn>
         </div>
       </Section>
 

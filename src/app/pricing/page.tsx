@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import { FadeIn } from "@/components/shared/fade-in";
+import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { PricingCards } from "@/components/pricing/pricing-cards";
 import { FAQ } from "@/components/home/faq";
@@ -16,24 +16,18 @@ export const metadata: Metadata = createMetadata({
 export default function PricingPage() {
   return (
     <>
-      <Section size="lg" className="border-b border-border">
-        <FadeIn>
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-3 text-sm font-medium tracking-wide text-accent uppercase">
-              Pricing
-            </p>
-            <h1 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              Simple, transparent pricing
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              No hidden fees. Choose the package that fits your business, or
-              book a call to discuss a custom solution.
-            </p>
-          </div>
-        </FadeIn>
-      </Section>
+      <PageHero
+        index="03"
+        label="Pricing"
+        title={
+          <>
+            Simple, <span className="accent-word">transparent</span> pricing
+          </>
+        }
+        description="No hidden fees. Choose the package that fits your business, or book a call to discuss a custom solution."
+      />
 
-      <Section>
+      <Section tone="surface" className="border-t border-border">
         <PricingCards />
       </Section>
 

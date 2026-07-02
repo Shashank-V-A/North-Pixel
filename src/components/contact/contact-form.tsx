@@ -84,7 +84,10 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <FadeIn>
-        <div className="rounded-2xl border border-border bg-white p-8 text-center">
+        <div className="rounded-2xl border border-border bg-surface p-10 text-center">
+          <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-brand/10">
+            <span className="font-mono text-sm text-brand">✓</span>
+          </div>
           <h3 className="font-heading text-xl font-semibold text-foreground">
             Message sent
           </h3>
@@ -101,15 +104,18 @@ export function ContactForm() {
     <FadeIn>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-5 rounded-2xl border border-border bg-white p-6 md:p-8"
+        className="space-y-5"
         noValidate
       >
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name" className="text-ink-subtle">
+              Name
+            </Label>
             <Input
               id="name"
               placeholder="Your name"
+              className="h-11 border-border bg-surface"
               aria-invalid={!!errors.name}
               {...register("name")}
             />
@@ -118,11 +124,14 @@ export function ContactForm() {
             )}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-ink-subtle">
+              Email
+            </Label>
             <Input
               id="email"
               type="email"
               placeholder="you@business.com"
+              className="h-11 border-border bg-surface"
               aria-invalid={!!errors.email}
               {...register("email")}
             />
@@ -134,30 +143,39 @@ export function ContactForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone (optional)</Label>
+            <Label htmlFor="phone" className="text-ink-subtle">
+              Phone (optional)
+            </Label>
             <Input
               id="phone"
               type="tel"
               placeholder="+91 90000 00000"
+              className="h-11 border-border bg-surface"
               {...register("phone")}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="business">Business name (optional)</Label>
+            <Label htmlFor="business" className="text-ink-subtle">
+              Business name (optional)
+            </Label>
             <Input
               id="business"
               placeholder="Your business"
+              className="h-11 border-border bg-surface"
               {...register("business")}
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="message">Tell me about your project</Label>
+          <Label htmlFor="message" className="text-ink-subtle">
+            Tell me about your project
+          </Label>
           <Textarea
             id="message"
             placeholder="What kind of website do you need? What's your timeline?"
             rows={5}
+            className="border-border bg-surface"
             aria-invalid={!!errors.message}
             {...register("message")}
           />
@@ -175,7 +193,7 @@ export function ContactForm() {
         <Button
           type="submit"
           size="lg"
-          className="w-full sm:w-auto"
+          className="h-12 w-full sm:w-auto"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "Send Message"}

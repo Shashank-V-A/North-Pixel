@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mail, MessageCircle } from "lucide-react";
-import { XIcon, InstagramIcon } from "@/components/shared/brand-icons";
+import { ArrowUpRight } from "lucide-react";
+import { BrandIconBadge } from "@/components/shared/brand-icons";
 import { siteConfig } from "@/lib/site-config";
 import { createMetadata } from "@/lib/metadata";
-import { FadeIn } from "@/components/shared/fade-in";
-import { Section } from "@/components/shared/section";
 import { ContactForm } from "@/components/contact/contact-form";
+import { SectionLabel } from "@/components/shared/section-label";
+import { FadeIn } from "@/components/shared/fade-in";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact",
@@ -17,108 +17,106 @@ export const metadata: Metadata = createMetadata({
 
 const contactMethods = [
   {
-    key: "email",
+    key: "email" as const,
     label: "Email",
     value: siteConfig.contact.email,
     href: siteConfig.links.email,
-    icon: Mail,
     external: false,
   },
   {
-    key: "x",
-    label: "X (Twitter)",
-    value: "@northpixel",
+    key: "x" as const,
+    label: "X",
+    value: siteConfig.contact.x,
     href: siteConfig.links.x,
-    icon: XIcon,
     external: true,
   },
   {
-    key: "instagram",
+    key: "instagram" as const,
     label: "Instagram",
     value: "@northpixel",
     href: siteConfig.links.instagram,
-    icon: InstagramIcon,
     external: true,
   },
 ];
 
 export default function ContactPage() {
   return (
-    <>
-      <Section size="lg" className="border-b border-border">
-        <FadeIn>
-          <div className="max-w-2xl">
-            <p className="mb-3 text-sm font-medium tracking-wide text-accent uppercase">
-              Contact
-            </p>
-            <h1 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              Let&apos;s start a conversation
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Tell me about your business and what you&apos;re looking for. I
-              typically respond within 24 hours.
-            </p>
-          </div>
-        </FadeIn>
-      </Section>
+    <div className="grid min-h-[calc(100vh-4.5rem)] lg:grid-cols-2">
+      <section className="relative overflow-hidden border-b border-background/15 bg-foreground text-background lg:border-b-0 lg:border-r">
+        <div className="absolute inset-0 bg-grid-dark opacity-50" />
+        <div className="relative flex h-full flex-col justify-between px-6 py-16 md:px-10 md:py-20 lg:px-12">
+          <FadeIn>
+            <div>
+              <SectionLabel index="04" variant="dark">
+                Contact
+              </SectionLabel>
+              <h1 className="mt-8 text-display-sm font-semibold text-balance text-background">
+                Let&apos;s start a{" "}
+                <span className="accent-word">conversation</span>
+              </h1>
+              <p className="mt-6 max-w-md text-[1.0625rem] leading-relaxed text-background/60">
+                Tell me about your business and what you&apos;re looking for. I
+                typically respond within 24 hours.
+              </p>
+            </div>
+          </FadeIn>
 
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <FadeIn>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 rounded-2xl border border-border bg-white p-5">
-                  <div className="inline-flex rounded-xl bg-accent/8 p-2.5 text-accent">
-                    <MessageCircle className="size-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <div className="mt-1 flex flex-col gap-1">
-                      {siteConfig.contact.whatsapp.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-medium text-foreground transition-colors hover:text-accent"
-                        >
-                          {item.display}
-                        </Link>
-                      ))}
-                    </div>
+          <FadeIn delay={0.08}>
+            <div className="mt-12 space-y-2 lg:mt-0">
+              <div className="flex items-center gap-3.5 rounded-lg border border-background/15 bg-background/[0.06] px-4 py-3.5 transition-colors hover:border-background/25">
+                <BrandIconBadge brand="whatsapp" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-background/50">WhatsApp</p>
+                  <div className="mt-1 flex flex-col gap-0.5">
+                    {siteConfig.contact.whatsapp.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between text-sm font-medium text-background transition-colors hover:text-[#25D366]"
+                      >
+                        {item.display}
+                        <ArrowUpRight className="size-3.5 opacity-0 transition-all group-hover:opacity-100" />
+                      </Link>
+                    ))}
                   </div>
                 </div>
-
-                {contactMethods.map((method) => (
-                  <Link
-                    key={method.key}
-                    href={method.href}
-                    target={method.external ? "_blank" : undefined}
-                    rel={method.external ? "noopener noreferrer" : undefined}
-                    className="group flex items-start gap-4 rounded-2xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm"
-                  >
-                    <div className="inline-flex rounded-xl bg-accent/8 p-2.5 text-accent">
-                      <method.icon className="size-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        {method.label}
-                      </p>
-                      <p className="mt-0.5 font-medium text-foreground group-hover:text-accent">
-                        {method.value}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
               </div>
-            </FadeIn>
-          </div>
 
-          <div className="lg:col-span-3">
-            <ContactForm />
-          </div>
+              {contactMethods.map((method) => (
+                <Link
+                  key={method.key}
+                  href={method.href}
+                  target={method.external ? "_blank" : undefined}
+                  rel={method.external ? "noopener noreferrer" : undefined}
+                  className="group flex items-center gap-3.5 rounded-lg border border-background/15 bg-background/[0.06] px-4 py-3.5 transition-colors hover:border-background/25"
+                >
+                  <BrandIconBadge brand={method.key} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-background/50">{method.label}</p>
+                    <p className="mt-0.5 truncate text-sm font-medium text-background">
+                      {method.value}
+                    </p>
+                  </div>
+                  <ArrowUpRight className="size-3.5 shrink-0 text-background/30 transition-all group-hover:text-background/70" />
+                </Link>
+              ))}
+            </div>
+          </FadeIn>
         </div>
-      </Section>
-    </>
+      </section>
+
+      <section className="flex items-center bg-background px-6 py-16 md:px-10 md:py-20 lg:px-12">
+        <div className="w-full max-w-lg">
+          <FadeIn delay={0.05}>
+            <p className="mb-8 font-mono text-xs text-ink-subtle">
+              Or send a message directly
+            </p>
+            <ContactForm />
+          </FadeIn>
+        </div>
+      </section>
+    </div>
   );
 }

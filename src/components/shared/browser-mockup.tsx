@@ -17,19 +17,19 @@ export function BrowserMockup({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
-        size === "large" && "rounded-3xl",
+        "group relative overflow-hidden rounded-xl border border-border bg-surface shadow-subtle transition-[border-color,box-shadow] duration-200 hover:border-foreground/15",
+        size === "large" && "rounded-2xl",
         className
       )}
     >
       {/* Browser chrome */}
-      <div className="flex items-center gap-2 border-b border-border bg-[#FAFAF9] px-4 py-3">
+      <div className="flex items-center gap-2 border-b border-border bg-surface-muted px-4 py-3">
         <div className="flex gap-1.5">
-          <span className="size-2.5 rounded-full bg-[#E5E5E5]" />
-          <span className="size-2.5 rounded-full bg-[#E5E5E5]" />
-          <span className="size-2.5 rounded-full bg-[#E5E5E5]" />
+          <span className="size-2 rounded-full bg-border" />
+          <span className="size-2 rounded-full bg-border" />
+          <span className="size-2 rounded-full bg-border" />
         </div>
-        <div className="mx-auto flex h-6 w-full max-w-xs items-center justify-center rounded-md bg-white px-3">
+        <div className="mx-auto flex h-6 w-full max-w-xs items-center justify-center rounded-md bg-surface px-3">
           <span className="truncate text-[10px] text-muted-foreground">
             {project.title.toLowerCase().replace(/\s+/g, "")}.com
           </span>

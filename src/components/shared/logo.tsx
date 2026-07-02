@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site-config";
@@ -7,31 +6,28 @@ type LogoProps = {
   variant?: "default" | "large";
   className?: string;
   href?: string | null;
-  priority?: boolean;
 };
-
-const LOGO_WIDTH = 242;
-const LOGO_HEIGHT = 67;
 
 export function Logo({
   variant = "default",
   className,
   href = "/",
-  priority = false,
 }: LogoProps) {
   const content = (
-    <span className={cn("inline-flex shrink-0", className)}>
-      <Image
-        src="/logo.png"
-        alt={`${siteConfig.name} — ${siteConfig.tagline}`}
-        width={LOGO_WIDTH}
-        height={LOGO_HEIGHT}
-        priority={priority}
+    <span className={cn("inline-flex flex-col leading-none", className)}>
+      <span
         className={cn(
-          "h-auto w-auto select-none object-contain",
-          variant === "large" ? "max-h-16 md:max-h-20" : "max-h-8 md:max-h-9"
+          "font-heading font-semibold tracking-[-0.02em] text-foreground",
+          variant === "large" ? "text-xl" : "text-base"
         )}
-      />
+      >
+        {siteConfig.name}
+      </span>
+      {variant === "large" && (
+        <span className="mt-1.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-ink-subtle">
+          Studio
+        </span>
+      )}
     </span>
   );
 
@@ -40,7 +36,7 @@ export function Logo({
   return (
     <Link
       href={href}
-      className="inline-flex transition-opacity hover:opacity-90"
+      className="inline-flex transition-opacity hover:opacity-80"
       aria-label={`${siteConfig.name} home`}
     >
       {content}
