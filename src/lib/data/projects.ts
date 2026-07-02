@@ -38,7 +38,9 @@ export const projects: Project[] = [
     title: "Bright Smile Dental",
     category: "Dental Clinic",
     description:
-      "A trustworthy clinic website with appointment scheduling, treatment information, and patient testimonials.",
+      "A Koramangala dental clinic site with treatment pricing, online booking, and trust signals for patients across Bengaluru.",
+    url: "https://sample-3-dental.vercel.app",
+    image: "/projects/bright-smile-dental.png",
     accent: "#0F4C5C",
     accentLight: "#E8F4F8",
     featured: true,
