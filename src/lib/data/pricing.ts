@@ -32,7 +32,7 @@ export const websitePackages: PricingTier[] = [
     name: "Professional",
     price: "₹17,999",
     description: "A custom-built website designed to help local businesses win more enquiries.",
-    idealFor: "Salons, clinics, restaurants, gyms, and growing businesses that need more pages and polish.",
+    idealFor: "Salons, clinics, retail stores, gyms, and growing businesses that need more pages and polish.",
     timeline: "14 business days after content is received",
     features: [
       "Up to 6 pages (Home, About, Services, Gallery, Contact, etc.)",

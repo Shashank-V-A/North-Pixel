@@ -3,6 +3,8 @@ export type Project = {
   title: string;
   category: string;
   description: string;
+  url?: string;
+  image?: string;
   accent: string;
   accentLight: string;
   featured?: boolean;
@@ -10,13 +12,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "maison-table",
-    title: "Maison Table",
-    category: "Restaurant",
+    slug: "urbanteak-furnishings",
+    title: "UrbanTeak Furnishings",
+    category: "Furniture Store",
     description:
-      "An elegant dining experience with online reservations and a menu that tells the story behind every dish.",
-    accent: "#1C1917",
-    accentLight: "#F5F0EB",
+      "A furniture showroom site with room-based collections, product highlights, and clear pricing for Bangalore homeowners.",
+    url: "https://sample-1-furniture.vercel.app",
+    image: "/projects/urbanteak-furnishings.png",
+    accent: "#5C4A32",
+    accentLight: "#FAF7F2",
     featured: true,
   },
   {

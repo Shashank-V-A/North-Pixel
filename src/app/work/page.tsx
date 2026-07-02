@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data/projects";
 import { createMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/shared/page-hero";
@@ -11,7 +13,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = createMetadata({
   title: "Work",
   description:
-    "Explore showcase projects for restaurants, salons, dental clinics, fitness studios, interior designers, and real estate consultants.",
+    "Explore showcase projects for furniture stores, salons, dental clinics, fitness studios, interior designers, and real estate consultants.",
   path: "/work",
 });
 
@@ -64,6 +66,17 @@ export default function WorkPage() {
                     <p className="mt-4 max-w-md text-[1rem] leading-relaxed text-muted-foreground">
                       {project.description}
                     </p>
+                    {project.url && (
+                      <Link
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-brand"
+                      >
+                        View live site
+                        <ArrowUpRight className="size-3.5" />
+                      </Link>
+                    )}
                     <div className="mt-6 flex items-center gap-3">
                       <div
                         className="size-3 rounded-full"
