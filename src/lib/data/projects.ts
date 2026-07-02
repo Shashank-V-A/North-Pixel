@@ -70,12 +70,14 @@ export const projects: Project[] = [
     accentLight: "#F5F2EE",
   },
   {
-    slug: "harbor-realty",
-    title: "Harbor Realty",
+    slug: "horizon-realty",
+    title: "Horizon Realty",
     category: "Real Estate Consultant",
     description:
-      "A professional property consultancy with listings, neighbourhood guides, and lead capture forms.",
+      "A Bengaluru property site with verified listings, neighbourhood guides, and free consultation booking for buyers and renters.",
+    url: "https://sample-7-real-estate.vercel.app",
+    image: "/projects/horizon-realty.png",
     accent: "#1E3A5F",
-    accentLight: "#EFF6FF",
+    accentLight: "#1A1A1A",
   },
 ];
