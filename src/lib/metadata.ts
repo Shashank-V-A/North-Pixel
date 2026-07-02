@@ -14,6 +14,12 @@ export function createMetadata({
     ? `${title} | ${siteConfig.name}`
     : `${siteConfig.name} — ${siteConfig.tagline}`;
   const pageDescription = description ?? siteConfig.description;
+  const shareTitle = title
+    ? pageTitle
+    : `${siteConfig.name} — ${siteConfig.tagline}`;
+  const shareDescription =
+    description ??
+    "Premium websites for businesses across India. Design, development & maintenance — packages from ₹9,999.";
   const url = `${siteConfig.url}${path}`;
 
   return {
@@ -24,17 +30,17 @@ export function createMetadata({
       canonical: url,
     },
     openGraph: {
-      title: pageTitle,
-      description: pageDescription,
+      title: shareTitle,
+      description: shareDescription,
       url,
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       type: "website",
     },
     twitter: {
-      card: "summary",
-      title: pageTitle,
-      description: pageDescription,
+      card: "summary_large_image",
+      title: shareTitle,
+      description: shareDescription,
     },
     robots: {
       index: true,
