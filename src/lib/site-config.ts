@@ -18,7 +18,7 @@ function getSiteUrl(): string {
     return "http://localhost:3000";
   }
 
-  return "https://northpixel.studio";
+  return "https://northpixel.ink";
 }
 
 export const siteConfig = {
