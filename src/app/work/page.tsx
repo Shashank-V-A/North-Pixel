@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = createMetadata({
   title: "Work",
   description:
-    "Explore showcase projects for furniture stores, salons, dental clinics, fitness studios, interior designers, and real estate consultants.",
+    "Explore showcase projects for furniture stores, fitness centres, dental clinics, salons, interior designers, and real estate consultants.",
   path: "/work",
 });
 
