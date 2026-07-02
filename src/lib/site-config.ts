@@ -8,11 +8,12 @@ export const siteConfig = {
   links: {
     email: "mailto:northpixelcreations@gmail.com",
     x: "https://x.com/NorthPixel1806",
-    instagram: "https://instagram.com/northpixel",
+    instagram: "https://instagram.com/northpixel1806",
   },
   contact: {
     email: "northpixelcreations@gmail.com",
     x: "@NorthPixel1806",
+    instagram: "@northpixel1806",
     whatsapp: [
       {
         display: "+91 70227 42719",

@@ -33,7 +33,7 @@ const contactMethods = [
   {
     key: "instagram" as const,
     label: "Instagram",
-    value: "@northpixel",
+    value: siteConfig.contact.instagram,
     href: siteConfig.links.instagram,
     external: true,
   },
