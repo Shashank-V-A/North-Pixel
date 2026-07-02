@@ -44,13 +44,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "forge-fitness",
-    title: "Forge Fitness",
-    category: "Fitness Studio",
+    slug: "forgefit-bengaluru",
+    title: "ForgeFit Bengaluru",
+    category: "Fitness Centre",
     description:
-      "A bold fitness brand with class schedules, trainer bios, and membership plans that drive sign-ups.",
-    accent: "#DC2626",
-    accentLight: "#FEF2F2",
+      "A high-energy gym site with membership plans, class schedules, and free trial booking for Koramangala's fitness community.",
+    url: "https://sample-2-gym.vercel.app",
+    image: "/projects/forgefit-bengaluru.png",
+    accent: "#E85D5D",
+    accentLight: "#141414",
   },
   {
     slug: "atelier-interiors",
